@@ -37,7 +37,7 @@ union OlahanHewan  {
 
 union SayurdanBuah  { 
     float jumlahKgsayur; 
-    int jumlahBuahsayur; 
+    float jumlahBuahsayur; 
 };
 
 enum bentukdonasi {
@@ -492,15 +492,14 @@ int main() {
             do { 
                 char DonaturChoice[6];
                 printf("Apakah ingin mendonasikan yang lain? (Ya/Tidak) *Ketik sesuai petunjuk: ");
-                fgets(DonaturChoice, sizeof(DonaturChoice), stdin);
-                DonaturChoice[strcspn(DonaturChoice, "\n")] = '\0';
-                
+                scanf("%[^\n]s", DonaturChoice);
+                getchar();
+
                 if (strcmp(DonaturChoice, "Ya") == 0) {
                     Choicevalid = 1;
                 } else if (strcmp(DonaturChoice, "Tidak") == 0) { 
                     Donatingloop = 1;
                     Choicevalid = 1;
-                    while(getchar() != '\n');
                 } else { 
                     puts("Masukan tidak valid. Ketik 'Ya' atau 'Tidak'.");
                 }
